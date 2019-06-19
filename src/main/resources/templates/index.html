@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Title</title>
+    <script th:inline="javascript">
+        var frontendData = [[${frontendData}]];
+    </script>
+
+</head>
+<body>
+<!--<h3>привет index</h3>-->
+    <!--<script type="text/javascript">-->
+        <!--console.log(frontendData.profile.name)-->
+    <!--</script>-->
+<div id="app"></div>
+<script th:src="'http://localhost:8001/main.js'"></script>
+</body>
+</html>
+

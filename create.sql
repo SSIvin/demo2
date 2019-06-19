@@ -1,0 +1,6 @@
+create table person (id bigint identity not null, f varchar(50), i varchar(50), o varchar(50), primary key (id))
+create table person (id bigint identity not null, f varchar(50), i varchar(50), o varchar(50), primary key (id))
+create table person (id bigint identity not null, f varchar(50), i varchar(50), o varchar(50), primary key (id))
+create table person (id bigint identity not null, f varchar(50), i varchar(50), o varchar(50), primary key (id))
+create table person (id bigint identity not null, f varchar(50), i varchar(50), o varchar(50), primary key (id))
+create table person (id bigint identity not null, f varchar(50), i varchar(50), o varchar(50), primary key (id))
