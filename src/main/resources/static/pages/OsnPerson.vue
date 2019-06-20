@@ -1,4 +1,7 @@
 <template>
+
+
+
     <div class="edit container">
         <v-label>{{lableTitle}}</v-label>
         <form v-on:submit="updateItem">
@@ -60,20 +63,57 @@
             >Close
             </v-btn>
             <v-btn
-                    @click.prevent=""
+                    @click=""
                     class="btn btn-primary"
                     flat=""
             > get
             </v-btn>
 
             <v-btn
-                    @click="settest"
+                    @click="modalWindow('dialogSignIn',true)"
                     class="btn btn-primary"
                     flat=""
-            > get2
+            > dialogSignIn
             </v-btn>
 
         </form>
+
+        <!--Simple Dialog-->
+        <!--применил общую функцию для показа окон modalWindow('имя окна','показать/скрыть')-->
+        <v-dialog v-model="modals.dialogSignIn" max-width="500px">
+            <v-card>
+                <v-card-title>
+                    <span class="headline"></span>
+                </v-card-title>
+                <v-card-text>
+                    <v-container grid-list-md>
+                        <v-layout wrap>
+                            <v-flex xs12 sm6 md4>
+                                <v-text-field v-model="person.f" label="Фамилия"></v-text-field>
+                            </v-flex>
+                            <v-flex xs12 sm6 md4>
+                                <v-text-field v-model="person.i" label="Имя"></v-text-field>
+                            </v-flex>
+                            <v-flex xs12 sm6 md4>
+                                <v-text-field v-model="person.o" label="Отчество"></v-text-field>
+                            </v-flex>
+                        </v-layout>
+                    </v-container>
+                </v-card-text>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <div class="modal-footer">
+                        <!--<v-btn type="button" class="btn btn-white" @click="$emit('close')">Close</v-btn>-->
+                        <v-btn type="button" class="btn btn-white" @click="modalWindow('dialogSignIn',false)">Close</v-btn>
+                        <!--<button type="button" class="btn btn-primary" data-dismiss="modal" :click="saveEdit">Save changes</button>-->
+                    </div>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
+        <!---------------------------------------------------->
+
+
+
     </div>
 </template>
 
@@ -85,6 +125,7 @@
         data() {
             return {
                 BirthDateMenuVisibility: false,
+                modal:false
             }
         },
         methods: {
@@ -107,8 +148,10 @@
             settest() {
 
                 console.log(this.listPersonOne.f)
-            }
-
+            },
+            modalWindow(name, show) {
+                this.$store.commit('dialogShow', { name, show });
+            },
         },
         destroyed() {
             this.$store.commit('CLEAR_PERSON');
@@ -125,7 +168,9 @@
         },
         computed: {
             ...mapState({
-                person: state => state.person.listPersonOne
+                person: state => state.person.listPersonOne,
+                modals:state => state.person.modals
+
             }),
             ...mapGetters(['getplace_job']),
             // place() {
@@ -133,6 +178,11 @@
             // },
             // personOsn() {
             //     return this.$store.getters.getPersonOne
+            // },
+
+
+            // modals() {
+            //     return this.$store.state.person.modals;
             // },
 
             BirthDateLocal: {

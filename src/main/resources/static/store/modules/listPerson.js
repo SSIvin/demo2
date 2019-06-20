@@ -10,7 +10,7 @@ export default {
         }
     },
     getters: {
-        listPersons: state => state.listPersons
+        listPersonsCount: state => state.listPersons.length
     },
     actions:{
         async GET_personAction({commit}, data) {

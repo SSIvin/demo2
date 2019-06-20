@@ -10,7 +10,11 @@ export default {
             id: 0,
             placeJob: null
         },
-        profile: frontendData.profile
+        profile: frontendData.profile,
+        modals: {
+            dialogSignUp: false,
+            dialogSignIn: false
+        }
     },
     mutations: {
         FillPersonMutation(state, payLoad) {
@@ -21,12 +25,14 @@ export default {
             state.listPersonOne.id = payLoad.id;
             state.listPersonOne.placeJob = payLoad.placeJob;
         },
-        set_test(state) {
-            state.testvalue = 10;
-        },
         updatePersonMutation(state, person) {
 
         },
+
+        dialogShow(state, { name, show }) {
+            state.modals[name] = show;
+        },
+
         deletePersonMutation(state, index) {
             state.listPersons.splice(index, 1)
         },

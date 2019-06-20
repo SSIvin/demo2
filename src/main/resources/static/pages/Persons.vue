@@ -1,7 +1,7 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
     <div>
         <!--<h1>{{profile.name}}</h1>-->
-        <!--<h1>{{aa.name}}</h1>-->
+        <h1>{{listPersonsCount}}</h1>
         <div>
             <v-data-table
                     :headers="headers"
@@ -96,7 +96,7 @@
             <v-layout row justify-center>
                 <v-dialog v-model="dialogFullScreen" fullscreen hide-overlay transition="dialog-bottom-transition">
                     <!--<template v-slot:activator="{ on }">-->
-                        <!--<v-btn color="primary" dark v-on="on">Open Dialog</v-btn>-->
+                    <!--<v-btn color="primary" dark v-on="on">Open Dialog</v-btn>-->
                     <!--</template>-->
                     <v-card>
                         <v-toolbar dark color="primary">
@@ -127,10 +127,12 @@
                                                 v-model="BirthDateMenuVisibility" :close-on-content-click="false"
                                                 :nudge-right="40" lazy transition="scale-transition" offset-y full-width
                                                 min-width="290px">
-                                            <v-text-field slot="activator" v-model="BirthDateLocal" label="Дата рождения"
+                                            <v-text-field slot="activator" v-model="BirthDateLocal"
+                                                          label="Дата рождения"
                                                           prepend-icon="event" readonly></v-text-field>
                                             <v-date-picker v-model="BirthDateLocal"
-                                                           no-title @input="$refs.BirthDateMenuRef.save(BirthDateLocal);"
+                                                           no-title
+                                                           @input="$refs.BirthDateMenuRef.save(BirthDateLocal);"
                                             >
 
                                             </v-date-picker>
@@ -241,7 +243,7 @@
 
 <script>
     import EditModal from "./EditModal.vue";
-    import {mapGetters} from "vuex";
+    import {mapGetters, mapState} from "vuex";
 
     export default {
         data() {
@@ -308,7 +310,10 @@
         },
 
         computed: {
-            ...mapGetters(['listPersons']),
+            ...mapGetters(['listPersonsCount']),
+            ...mapState({
+                listPersons: state => state.listPerson.listPersons
+            }),
 
             // GET_persons() {
             //     this.alert = true;
@@ -333,7 +338,7 @@
             },
             BirthDateLocal: {
                 get() {
-                    return this.person.id?this.person.birthday:"";
+                    return this.person.id ? this.person.birthday : "";
                 },
                 set(newValue) {
                     console.log('BirthDateLocal Setter: ' + newValue);
