@@ -70,7 +70,7 @@ export default {
     },
     actions: {
         async updateMessageAction({commit}, data) {
-            await Axios.put('http://localhost:9001/api/update/' + data.id, data)
+            await Axios.put('http://10.10.12.232:9001/api/update/' + data.id, data)
                 .then(resp => {
                     console.log('Save ok');
                 })
@@ -79,7 +79,7 @@ export default {
                 })
         },
         async CreateMessageAction({commit}, data) {
-            await Axios.post('http://localhost:9001/api/add', data)
+            await Axios.post('http://10.10.12.232:9001/api/add', data)
                 .then(resp => {
                     console.log('create ok');
                 })
@@ -88,7 +88,7 @@ export default {
                 })
         },
         async deletePersonAction({commit}, data) {
-            await Axios.delete('http://localhost:9001/api/delete/' + data.item.id)
+            await Axios.delete('http://10.10.12.232:9001/api/delete/' + data.item.id)
                 .then(resp => {
                     commit('deletePersonMutation', data.index)
                     console.log('delete ok');
@@ -100,7 +100,7 @@ export default {
         },
         async GET_personOneAction({commit}, data) {
             // commit('SET_PROCESSING',true)
-            await Axios.post('http://localhost:9001/api/findOne', Object(data))
+            await Axios.post('http://10.10.12.232:9001/api/findOne', Object(data))
                 .then(resp => {
                     //commit('clearPersonMutation');
                     if (resp.data) {
@@ -114,7 +114,7 @@ export default {
                 })
         },
         async GET_FILE({commit}) {
-            await Axios.get('http://localhost:9001/api/download/customers.xlsx', {responseType: 'blob'})
+            await Axios.get('http://10.10.12.232:9001/api/download/customers.xlsx', {responseType: 'blob'})
                 .then((resp) => {
                     const url = window.URL.createObjectURL(new Blob([resp.data]));
                     const link = document.createElement('a');

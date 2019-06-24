@@ -1,8 +1,10 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.Person;
+import com.example.demo.domain.Views;
 import com.example.demo.repo.PersonRepo;
 import com.example.demo.util.ExcelGenerator;
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -40,10 +42,11 @@ public class MessageController {
 //        return items;
     }
 
-    @PostMapping("/find")
+    @PostMapping(path = "/find")
+    @JsonView(Views.IdName.class)
     public List<Person>  Find(@RequestBody Person person)
     {
-        //System.out.println(person);
+        System.out.println(person);
 //        personRepo.FindPerson(person).forEach(msg ->log.debug("message:{}",msg.toString()));
         return personRepo.FindPerson(person);
     }

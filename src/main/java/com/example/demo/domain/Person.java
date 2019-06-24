@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.*;
 
 import javax.persistence.*;
@@ -7,24 +8,25 @@ import java.util.Date;
 
 @Entity
 @Table(name = "Person")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString(of = {"id"})
 public class Person {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "id")
+    @JsonView(Views.Id.class)
     private Long id;
 
     @Column(name = "f", length = 50)
+    @JsonView(Views.IdName.class)
     private String f;
 
     @Column(name = "i",length = 50)
+    @JsonView(Views.IdName.class)
     private String i;
 
     @Column(name = "o", length = 50)
+    @JsonView(Views.IdName.class)
     private String o;
 
     @Column(name = "placeJob")
@@ -32,6 +34,9 @@ public class Person {
 
     @Column(name = "birthday")
     private Date birthday;
+
+    public Person() {
+    }
 
     public Person(long id, String f, String i, String o) {
         this.id = id;

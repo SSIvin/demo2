@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import vuetify from 'vuetify';
-import router from "../router/router.js"
-import App from '../pages/App.vue'
+import router from "./router/router.js"
+import App from './pages/App.vue'
 import 'vuetify/dist/vuetify.min.css'
-import store from "../store/index.js"
-import AlertCmp from '../pages/Alert.vue'
+import store from "./store/index.js"
+import AlertCmp from './pages/Alert.vue'
 
 // import VueResource from 'vue-resource'
 

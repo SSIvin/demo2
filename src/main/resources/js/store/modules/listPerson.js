@@ -15,7 +15,7 @@ export default {
     actions:{
         async GET_personAction({commit}, data) {
             commit('SET_PROCESSING',true)
-            await Axios.post('http://localhost:9001/api/find', data)
+            await Axios.post('http://10.10.12.232:9001/api/find', data)
                 .then(resp => {
                     commit('SET_Persons', resp.data);
                     commit('SET_PROCESSING',false)

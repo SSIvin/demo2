@@ -1,6 +1,8 @@
 package com.example.demo.domain.dic;
 
 
+import com.example.demo.domain.Views;
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,9 +19,11 @@ public class place_job {
 
     @Id
     @Column(name = "id")
+    @JsonView(Views.Id.class)
     private Long id;
 
     @Column(name = "name", length = 50)
+    @JsonView(Views.IdName.class)
     private String name;
 
 
