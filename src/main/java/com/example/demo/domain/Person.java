@@ -10,8 +10,6 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 @ToString(of = {"id"})
 public class Person {
 
@@ -36,7 +34,10 @@ public class Person {
     private Date birthday;
 
     public Person(long id, String f, String i, String o) {
-
+        this.id = id;
+        this.f = f;
+        this.i = i;
+        this.o = o;
     }
 
     public Person(String f, String i, String o, Long placeJob, Date birthday) {

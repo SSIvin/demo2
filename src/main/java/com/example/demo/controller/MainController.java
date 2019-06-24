@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,9 @@ public class MainController {
 //        this.messageRepo = messageRepo;
 //    }
 
+    @Value("${spring.profiles.active:prod}")
+    private String profile;
+
     @GetMapping
 //    public String main() {
     public String main(Model model, Principal user) {
@@ -30,7 +34,7 @@ public class MainController {
         }
 
         model.addAttribute("frontendData", data);
-//        model.addAttribute("isDevMode", "dev".equals(profile));
+        model.addAttribute("isDevMode", "dev");
 
         return "index";
     }
