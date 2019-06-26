@@ -47,10 +47,11 @@
                 </v-list-tile>
             </v-list>
         </v-navigation-drawer>
-        <v-content class="mx-4 mb-4">
-        <router-view></router-view>
+        <v-content>
+            <router-view></router-view>
         </v-content>
     </v-app>
+
     <!--<div>-->
     <!--<router-view></router-view>-->
     <!--</div>-->
@@ -66,6 +67,7 @@
                     fixed: false,
                     open: true
                 },
+                appTitle: 'Meal Prep',
                 links: [
                     {
                         text: 'Persons',
@@ -81,6 +83,11 @@
                         text: 'Find',
                         icon: 'person',
                         route: '/find'
+                    },
+                    {
+                        text: 'mobile',
+                        icon: 'person',
+                        route: '/mobile'
                     }
                 ]
             }
@@ -100,4 +107,9 @@
 
 <style scoped>
 
+    .pink-box {
+        border: 2px red solid;
+        /* rest height ??? */
+        /* height: 100%; */
+    }
 </style>

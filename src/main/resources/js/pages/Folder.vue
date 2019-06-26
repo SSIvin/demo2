@@ -1,5 +1,6 @@
 <template>
     <div>
+        <v-container>
         <h1>Folder</h1>
 
         <v-btn
@@ -8,6 +9,7 @@
         >
             Find
         </v-btn>
+        </v-container>
     </div>
 
 </template>

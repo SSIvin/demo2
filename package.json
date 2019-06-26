@@ -2,8 +2,8 @@
   "name": "demo2",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack --mode production"
+    "start": "webpack-dev-server  --color true --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "dependencies": {
     "axios": "^0.19.0",

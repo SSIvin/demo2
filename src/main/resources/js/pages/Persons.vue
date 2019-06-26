@@ -1,5 +1,5 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
-    <div>
+    <v-container>
         <!--<h1>{{profile.name}}</h1>-->
         <h1>{{listPersonsCount}}</h1>
         <div>
@@ -238,7 +238,7 @@
             </v-layout>
         </template>
         <!---------------------------------------------------->
-    </div>
+    </v-container>
 </template>
 
 <script>

@@ -4,6 +4,7 @@ import Persons from "../pages/Persons.vue";
 import Folder from "../pages/Folder.vue";
 import Find from "../pages/Find.vue";
 import OsnPerson from "../pages/OsnPerson.vue";
+import Mobile from "../pages/Mobile.vue";
 
 Vue.use(VueRouter)
 
@@ -32,6 +33,11 @@ export default new VueRouter({
             path: '/message/add',
             component: OsnPerson,
             name:'addPerson'
+        },
+        {
+            path:'/mobile',
+            component:Mobile,
+            name:'mobile'
         },
         {
             path: '*',
