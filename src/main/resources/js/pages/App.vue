@@ -58,7 +58,6 @@
 </template>
 
 <script>
-    // import Persons from "./pages/Persons.vue";
 
     export default {
         data() {
@@ -85,9 +84,9 @@
                         route: '/find'
                     },
                     {
-                        text: 'mobile',
-                        icon: 'person',
-                        route: '/mobile'
+                        text: 'Загрузка файлов',
+                        icon: 'business',
+                        route: '/uploadFiles'
                     }
                 ]
             }

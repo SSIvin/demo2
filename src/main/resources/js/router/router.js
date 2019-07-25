@@ -4,7 +4,7 @@ import Persons from "../pages/Persons.vue";
 import Folder from "../pages/Folder.vue";
 import Find from "../pages/Find.vue";
 import OsnPerson from "../pages/OsnPerson.vue";
-import Mobile from "../pages/Mobile.vue";
+import uploadFiles from "../pages/uploadFiles.vue";
 
 Vue.use(VueRouter)
 
@@ -35,9 +35,9 @@ export default new VueRouter({
             name:'addPerson'
         },
         {
-            path:'/mobile',
-            component:Mobile,
-            name:'mobile'
+            path:'/uploadFiles',
+            component:uploadFiles,
+            name:'uploadFiles'
         },
         {
             path: '*',

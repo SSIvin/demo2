@@ -1,0 +1,31 @@
+1. выполняем (зависимость помогает объединять несколько конфигов)
+yarn add -D webpack-MERGE
+
+2, выполняем - установка плагина для чистки папки
+yarn add -D clean-webpack-plugin
+
+по видео корректировка: надо const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+вместо const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+3,выполняем:
+F:\Java_project\01_vue\text\demo2>gradle build
+F:\Java_project\01_vue\text\demo2>java -jar build/libs/demo2-0.0.1-SNAPSHOT.jar -D
+
+
+4. для мониторинга процесса можно использовать утилиту java в cmd:
+jvisualvm
+
+
+
+"start": "webpack-dev-server",
+    "build": "webpack --mode production",
+    "build": "webpack --config webpack.prod.js"
+
+
+
+    "start": "webpack-dev-server",
+    "build": "webpack --mode production"
+
+
+
+F:\Python\Python37-32\Scripts\;F:\Python\Python37-32\;c:\Java\jdk1.8.0_144\bin;c:\Borland\BDS\4.0\Bpl;C:\Users\s_ivin\Documents\Borland Studio Projects\Bpl;%systemroot%\system32;C:\Program Files\SQL Operations Studio\bin;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools;%M2_HOME%\bin;C:\Users\s_ivin\AppData\Roaming\npm;f:\Java_project\curl\bin;f:\Java\Yarn\bin;f:\Java\Gradle\bin;%PyCharm%

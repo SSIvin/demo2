@@ -9,6 +9,7 @@ import java.util.Date;
 @Entity
 @Table(name = "Person")
 @ToString(of = {"id"})
+
 public class Person {
 
     @Id

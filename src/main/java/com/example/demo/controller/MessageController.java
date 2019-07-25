@@ -12,9 +12,9 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 
 @RestController
@@ -49,6 +49,25 @@ public class MessageController {
         System.out.println(person);
 //        personRepo.FindPerson(person).forEach(msg ->log.debug("message:{}",msg.toString()));
         return personRepo.FindPerson(person);
+    }
+
+    @PostMapping(path = "/addFile")
+    void addFile(
+            @RequestParam("file") MultipartFile file)
+            throws IOException {
+
+//        if (!file.isEmpty()) {
+//            try {
+//                byte[] bytes = file.getBytes();
+//                BufferedOutputStream stream =
+//                        new BufferedOutputStream(new FileOutputStream(new File(name + "-uploaded")));
+//                stream.write(bytes);
+//                stream.close();
+//            } catch (Exception e) {
+//            }
+//        }
+//
+        file.transferTo(new File("C:/" + file.getOriginalFilename()));
     }
 
     @PostMapping("/findOne")
